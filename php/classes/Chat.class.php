@@ -93,7 +93,7 @@ class Chat{
 		DB::query("DELETE FROM user WHERE last_activity < SUBTIME(NOW(),'0:0:30')");
 		*/
 		
-		$result = DB::query('SELECT * FROM user ORDER BY name ASC LIMIT 18');
+		$result = DB::query('SELECT * FROM user where isLogin=1 ORDER BY name ASC LIMIT 18');
 		
 		$users = array();
 		while($user = $result->fetch_object()){
@@ -103,7 +103,7 @@ class Chat{
 	
 		return array(
 			'users' => $users,
-			'total' => DB::query('SELECT COUNT(*) as cnt FROM user')->fetch_object()->cnt
+			'total' => DB::query('SELECT COUNT(*) as cnt FROM user where isLogin=1')->fetch_object()->cnt
 		);
 	}
 	
