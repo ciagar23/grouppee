@@ -63,6 +63,7 @@ var chat = {
 		$('#submitForm').submit(function(){
 			
 			var text = $('#chatText').val();
+			var roomId = $('#roomId').val();
 			
 			if(text.length == 0){
 				return false;
@@ -93,6 +94,7 @@ var chat = {
 				working = false;
 				
 				$('#chatText').val('');
+				$('#roomId').val('');
 				$('div.chat-'+tempID).remove();
 				
 				params['id'] = r.insertID;

@@ -33,6 +33,7 @@ $room = $_GET['room'];
         
         <form id="submitForm" method="post" action="">
             <input id="chatText" name="chatText" class="rounded" maxlength="255" />
+			<input type="hidden" id="roomId" name="roomId" value="<?=$room?>">
             <input type="submit" class="blueButton" value="Submit" />
         </form>
         
