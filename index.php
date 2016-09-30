@@ -1,5 +1,34 @@
 <?php
-$room = $_GET['room'];
+$room = (isset($_GET['room']) && $_GET['room'] != '') ? $_GET['room'] : '';
+
+switch ($room) {
+		
+	case '1' :
+		$yourRoom 	= 'Actinbox';	
+		break;
+		
+	case '2' :
+		$yourRoom 	= 'Overdose';	
+		break;
+		
+	case '3' :
+		$yourRoom 	= 'Publiq';	
+		break;
+		
+	case '4' :
+		$yourRoom 	= 'Trips';	
+		break;
+		
+	case '5' :
+		$yourRoom 	= 'Lovelife';	
+		break;
+			
+		
+	default :
+		$room = 1;
+		$yourRoom 	= 'Actinbox';
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,12 +46,22 @@ $room = $_GET['room'];
 <input type="hidden" id="room" value="<?=$room?>">
 <center><img src="img/logo.png"></center>
 <div id="chatContainer">
+<h2 align=center>Choose your room</h2> <br>
+<a href="?room=1">Actinbox</a> | 
+<a href="?room=2">Overdose</a> | 
+<a href="?room=3">Publiq</a> | 
+<a href="?room=4">Trips</a> | 
+<a href="?room=5">Lovelife</a> 
+
 
     <div id="chatTopBar" class="rounded"></div>
     <div id="chatLineHolder"></div>
     
+	
+	Room: <?=$yourRoom?>
     <div id="chatUsers" class="rounded"></div>
     <div id="chatBottomBar" class="rounded">
+
     	<div class="tip"></div>
         
         <form id="loginForm" method="post" action="">
